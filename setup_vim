@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Copying .vimrc to $HOME/.vimrc"
+cp .vimrc $HOME/.vimrc
+
+echo "Installing Pathogen (for installing plugins)"
+mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle 
+curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+echo "Installing NERDTree"
+cd ~/.vim/bundle
+git clone https://github.com/scrooloose/nerdtree.git
