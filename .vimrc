@@ -7,4 +7,4 @@ set number             " Show line numbers
 set foldmethod=indent  " For method/class/function folding use indents
 au BufRead * normal zR " Automatic command to unfold everything
 set colorcolumn=75     " Show 75 char column
-
+nmap oo o<Esc>         " Type o twice to insert empty line without insert mode
