@@ -1,3 +1,6 @@
+" For Plugins (like NERDTree)
+execute pathogen#infect()
+
 " Basic behaviour
 syntax on              " Show syntax highlighting
 set number             " Show line numbers
@@ -7,6 +10,7 @@ set expandtab          " Tab key causes spaces to be inserted
 set tabstop=4          " Tab key causes 4 spaces to be inserted
 set shiftwidth=4       " Indentation uses 4 spaces
 set autoindent         " Copy indentation from pervious line when starting new line
+set encoding=utf-8
 
 " Folding (close all folds initiallly)
 set foldmethod=indent  " For method/class/function folding use indents
@@ -19,6 +23,3 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" For Plugins (like NERDTree)
-execute pathogen#infect()

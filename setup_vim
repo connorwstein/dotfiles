@@ -7,5 +7,5 @@ mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle
 curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 echo "Installing NERDTree"
-cd ~/.vim/bundle
+cd $HOME/.vim/bundle
 git clone https://github.com/scrooloose/nerdtree.git
