@@ -8,4 +8,5 @@ curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 echo "Installing NERDTree"
 cd $HOME/.vim/bundle
+if [[ -d "nerdtree" ]]; then echo "NERDTree already installed"; exit 0; fi
 git clone https://github.com/scrooloose/nerdtree.git
