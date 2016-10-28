@@ -2,11 +2,27 @@
 echo "Copying .vimrc to $HOME/.vimrc"
 cp .vimrc $HOME/.vimrc
 
-echo "Installing Pathogen (for installing plugins)"
-mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle 
-curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+if [[ -d "$HOME/.vim/bundle" ]] && [[ -d "$HOME/.vim/bundle" ]]; then
+    echo "Pathogen already installed"
+else
+    echo "Installing Pathogen (for installing plugins)"
+    mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle
+    curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+fi
+
+cd $HOME/.vim/bundle
 
 echo "Installing NERDTree"
-cd $HOME/.vim/bundle
-if [[ -d "nerdtree" ]]; then echo "NERDTree already installed"; exit 0; fi
-git clone https://github.com/scrooloose/nerdtree.git
+if [[ -d "nerdtree" ]]; then 
+    echo "NERDTree already installed"; 
+else
+    git clone https://github.com/scrooloose/nerdtree.git
+fi
+
+echo "Installing HackerNews"
+if [[ -d "vim-hackernews" ]]; then
+    echo "HackerNews already installed"
+else
+    git clone https://github.com/ryanss/vim-hackernews
+fi
+
