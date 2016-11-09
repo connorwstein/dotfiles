@@ -26,3 +26,9 @@ else
     git clone https://github.com/ryanss/vim-hackernews
 fi
 
+echo "Installing flake8"
+if [[ -d "vim-flake8" ]]; then
+    echo "Flake8 already installed"
+else
+    git clone https://github.com/nvie/vim-flake8
+fi

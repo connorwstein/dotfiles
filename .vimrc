@@ -10,6 +10,7 @@ set tabstop=4          " Tab key causes 4 spaces to be inserted
 set shiftwidth=4       " Indentation uses 4 spaces
 set autoindent         " Copy indentation from pervious line when starting new line
 set encoding=utf-8
+colorscheme evening
 
 " Folding (close all folds initiallly)
 set foldmethod=indent  " For method/class/function folding use indents
