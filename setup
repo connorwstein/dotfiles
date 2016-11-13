@@ -1,6 +1,14 @@
 #!/bin/bash
+echo "Copying .gitconfig to $HOME/.gitconfig"
+cp .gitconfig $HOME/.gitconfig
+
 echo "Copying .vimrc to $HOME/.vimrc"
 cp .vimrc $HOME/.vimrc
+
+if ! curl -V; then
+    echo "Need to install curl first (apt-get install curl)"
+    exit 1
+fi
 
 if [[ -d "$HOME/.vim/bundle" ]] && [[ -d "$HOME/.vim/bundle" ]]; then
     echo "Pathogen already installed"
