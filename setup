@@ -13,8 +13,8 @@ fi
 cd $HOME/.vim/bundle
 
 echo "Installing NERDTree"
-if [[ -d "nerdtree" ]]; then 
-    echo "NERDTree already installed"; 
+if [[ -d "nerdtree" ]]; then
+    echo "NERDTree already installed";
 else
     git clone https://github.com/scrooloose/nerdtree.git
 fi
@@ -32,3 +32,9 @@ if [[ -d "vim-flake8" ]]; then
 else
     git clone https://github.com/nvie/vim-flake8
 fi
+
+echo "Setting up bash prompt"
+echo -e "parse_git_branch() {\n\tgit branch 2> /dev/null " \
+"| sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'\n}" >> $HOME/.bash_profile
+echo 'export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ ' \
+>> $HOME/.bash_profile
