@@ -2,7 +2,7 @@
 execute pathogen#infect()
 
 " Basic behaviour
-syntax on              " Show syntax highlighting
+syntax enable " Show syntax highlighting
 set number             " Show line numbers
 set backspace=2        " Backspace deletes in insert mode
 set expandtab          " Tab key causes spaces to be inserted
@@ -10,11 +10,15 @@ set tabstop=4          " Tab key causes 4 spaces to be inserted
 set shiftwidth=4       " Indentation uses 4 spaces
 set autoindent         " Copy indentation from pervious line when starting new line
 set encoding=utf-8
-colorscheme evening
+set paste
+let g:solarized_termcolors=256
+
+set background=light
+colorscheme solarized
 
 " Folding (close all folds initiallly)
 set foldmethod=indent  " For method/class/function folding use indents
-au BufRead * normal zR 
+au BufRead * normal zR
 
 " Key mappings
 nnoremap ; :

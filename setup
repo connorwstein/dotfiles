@@ -5,7 +5,7 @@ cp .gitconfig $HOME/.gitconfig
 echo "Copying .vimrc to $HOME/.vimrc"
 cp .vimrc $HOME/.vimrc
 
-if ! curl -V; then
+if ! /usr/bin/curl -V; then
     echo "Need to install curl first (apt-get install curl)"
     exit 1
 fi
@@ -15,28 +15,43 @@ if [[ -d "$HOME/.vim/bundle" ]] && [[ -d "$HOME/.vim/bundle" ]]; then
 else
     echo "Installing Pathogen (for installing plugins)"
     mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle
-    curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    /usr/bin/curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 fi
 
 cd $HOME/.vim/bundle
 
 echo "Installing NERDTree"
-if [[ -d "nerdtree" ]]; then 
-    echo "NERDTree already installed"; 
+if [[ -d "nerdtree" ]]; then
+    echo "NERDTree already installed";
 else
-    git clone https://github.com/scrooloose/nerdtree.git
+    /usr/bin/git clone https://github.com/scrooloose/nerdtree.git
 fi
 
 echo "Installing HackerNews"
 if [[ -d "vim-hackernews" ]]; then
     echo "HackerNews already installed"
 else
-    git clone https://github.com/ryanss/vim-hackernews
+    /usr/bin/git clone https://github.com/ryanss/vim-hackernews
 fi
 
 echo "Installing flake8"
 if [[ -d "vim-flake8" ]]; then
     echo "Flake8 already installed"
 else
-    git clone https://github.com/nvie/vim-flake8
+    /usr/bin/git clone https://github.com/nvie/vim-flake8
 fi
+
+echo "Installing solarized"
+if [[ -d "vim-colors-solarized" ]]; then
+    echo "Solarized already installed"
+else
+    /usr/bin/git clone https://github.com/altercation/vim-colors-solarized.git
+fi
+
+echo "Setting up bash prompt"
+echo -e "parse_git_branch() {\n\tgit branch 2> /dev/null " \
+"| sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'\n}" >> $HOME/.bash_profile
+echo 'export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "' \
+>> $HOME/.bash_profile
+echo "Setting up terminal"
+echo "export TERM=xterm-256color" >> $HOME/.bash_profile
