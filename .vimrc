@@ -1,5 +1,7 @@
 " For Plugins (like NERDTree)
 execute pathogen#infect()
+execute pathogen#helptags()
+
 
 " Basic behaviour
 syntax enable " Show syntax highlighting
@@ -10,7 +12,7 @@ set tabstop=4          " Tab key causes 4 spaces to be inserted
 set shiftwidth=4       " Indentation uses 4 spaces
 set autoindent         " Copy indentation from pervious line when starting new line
 set encoding=utf-8
-set paste
+" set paste, can't have set paste and jedi-vim
 let g:solarized_termcolors=256
 
 set background=light

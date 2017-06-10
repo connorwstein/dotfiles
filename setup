@@ -27,18 +27,11 @@ else
     /usr/bin/git clone https://github.com/scrooloose/nerdtree.git
 fi
 
-echo "Installing HackerNews"
-if [[ -d "vim-hackernews" ]]; then
-    echo "HackerNews already installed"
+echo "Installing Jedi Autocompletion"
+if [[ -d "jedi-vim" ]]; then
+	echo "Jedi already installed";
 else
-    /usr/bin/git clone https://github.com/ryanss/vim-hackernews
-fi
-
-echo "Installing flake8"
-if [[ -d "vim-flake8" ]]; then
-    echo "Flake8 already installed"
-else
-    /usr/bin/git clone https://github.com/nvie/vim-flake8
+	/usr/bin/git clone --recursive https://github.com/davidhalter/jedi-vim.git
 fi
 
 echo "Installing solarized"
