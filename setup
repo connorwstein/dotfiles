@@ -27,13 +27,6 @@ else
     /usr/bin/git clone https://github.com/scrooloose/nerdtree.git
 fi
 
-echo "Installing Jedi Autocompletion"
-if [[ -d "jedi-vim" ]]; then
-	echo "Jedi already installed";
-else
-	/usr/bin/git clone --recursive https://github.com/davidhalter/jedi-vim.git
-fi
-
 echo "Installing solarized"
 if [[ -d "vim-colors-solarized" ]]; then
     echo "Solarized already installed"
