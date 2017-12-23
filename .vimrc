@@ -2,7 +2,6 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 
-
 " Basic behaviour
 syntax enable " Show syntax highlighting
 set number             " Show line numbers
@@ -12,7 +11,7 @@ set tabstop=4          " Tab key causes 4 spaces to be inserted
 set shiftwidth=4       " Indentation uses 4 spaces
 set autoindent         " Copy indentation from pervious line when starting new line
 set encoding=utf-8
-" set paste, can't have set paste and jedi-vim
+set paste "Note can't have set paste and jedi-vim
 let g:solarized_termcolors=256
 
 set background=light
@@ -30,13 +29,27 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Commenting blocks of code
-autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
-autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-autocmd FileType conf,fstab       let b:comment_leader = '# '
-autocmd FileType vim              let b:comment_leader = '" '
+" Commenting blocks of code quickly
+autocmd FileType c,cpp,java,scala,go let b:comment_leader = '// '
+autocmd FileType sh,ruby,python      let b:comment_leader = '# '
+autocmd FileType conf,fstab          let b:comment_leader = '# '
+autocmd FileType vim                 let b:comment_leader = '" '
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
+" Turn off all backup stuff, we have git for this
+set nobackup
+set nowb
+set noswapfile
+
 " Ignore swapfile warning
 set shortmess+=A
+
+" Automatically open NERDTree
+au VimEnter *  NERDTree
+
+" Show hidden files 
+let NERDTreeShowHidden=1
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1

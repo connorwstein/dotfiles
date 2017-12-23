@@ -27,17 +27,55 @@ else
     /usr/bin/git clone https://github.com/scrooloose/nerdtree.git
 fi
 
-echo "Installing solarized"
+echo "Installing Syntastic"
+if [[ -d syntastic ]]; then 
+    echo "Syntastic already installed";
+else
+    git clone --depth=1 https://github.com/vim-syntastic/syntastic.git 
+fi
+
+echo "Installing Solarized"
 if [[ -d "vim-colors-solarized" ]]; then
     echo "Solarized already installed"
 else
     /usr/bin/git clone https://github.com/altercation/vim-colors-solarized.git
 fi
 
-echo "Setting up bash prompt"
-echo -e "parse_git_branch() {\n\tgit branch 2> /dev/null " \
-"| sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'\n}" >> $HOME/.bash_profile
-echo 'export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "' \
->> $HOME/.bash_profile
-echo "Setting up terminal"
-echo "export TERM=xterm-256color" >> $HOME/.bash_profile
+echo "Installing Airline"
+if [[ -d "vim-airline" ]]; then
+    echo "Airline already installed"
+else
+    /usr/bin/git clone https://github.com/vim-airline/vim-airline
+fi
+echo "Installing Airline Themes"
+if [[ -d "vim-airline-themese" ]]; then
+    echo "Airline Themes already installed"
+else
+    /usr/bin/git clone https://github.com/vim-airline/vim-airline-themes 
+fi
+
+# git stuff for airline
+echo "Installing Fugitive"
+if [[ -d "vim-fugitive" ]]; then
+    echo "Fugitive already installed"
+else
+    /usr/bin/git clone https://github.com/tpope/vim-fugitive.git
+fi
+
+echo "Setting up bash prompt, source ~/.bash_profile after complete!"
+# On OSX bash_profile is the login shell
+if ! grep PS1 $HOME/.bash_profile; then
+    echo -e "parse_git_branch() {\n\tgit branch 2> /dev/null " \
+    "| sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'\n}" >> $HOME/.bash_profile
+    echo 'export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "' \
+    >> $HOME/.bash_profile
+fi
+if ! grep TERM $HOME/.bash_profile; then
+    echo "export TERM=xterm-256color" >> $HOME/.bash_profile
+fi
+if ! grep "alias hs" $HOME/.bash_profile; then
+    echo 'alias hs="history | grep"' >> $HOME/.bash_profile
+fi
+if ! grep "alias ls" $HOME/.bash_profile; then
+    echo 'alias ls="ls -lart"' >> $HOME/.bash_profile
+fi
