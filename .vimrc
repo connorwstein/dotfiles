@@ -50,6 +50,3 @@ au VimEnter *  NERDTree
 
 " Show hidden files 
 let NERDTreeShowHidden=1
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#branch#enabled = 1

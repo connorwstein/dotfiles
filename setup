@@ -1,14 +1,18 @@
 #!/bin/bash
+if ! /usr/bin/curl -V; then
+    echo "Need to install curl first (apt-get install curl)"
+    exit 1
+fi
+
 echo "Copying .gitconfig to $HOME/.gitconfig"
 cp .gitconfig $HOME/.gitconfig
 
 echo "Copying .vimrc to $HOME/.vimrc"
 cp .vimrc $HOME/.vimrc
 
-if ! /usr/bin/curl -V; then
-    echo "Need to install curl first (apt-get install curl)"
-    exit 1
-fi
+echo "Copying cscope_maps.vim to $HOME/.vim/plugin"
+mkdir -p $HOME/.vim/plugin
+cp cscope_maps.vim $HOME/.vim/plugin/
 
 if [[ -d "$HOME/.vim/bundle" ]] && [[ -d "$HOME/.vim/bundle" ]]; then
     echo "Pathogen already installed"
@@ -41,26 +45,6 @@ else
     /usr/bin/git clone https://github.com/altercation/vim-colors-solarized.git
 fi
 
-echo "Installing Airline"
-if [[ -d "vim-airline" ]]; then
-    echo "Airline already installed"
-else
-    /usr/bin/git clone https://github.com/vim-airline/vim-airline
-fi
-echo "Installing Airline Themes"
-if [[ -d "vim-airline-themese" ]]; then
-    echo "Airline Themes already installed"
-else
-    /usr/bin/git clone https://github.com/vim-airline/vim-airline-themes 
-fi
-
-# git stuff for airline
-echo "Installing Fugitive"
-if [[ -d "vim-fugitive" ]]; then
-    echo "Fugitive already installed"
-else
-    /usr/bin/git clone https://github.com/tpope/vim-fugitive.git
-fi
 
 echo "Setting up bash prompt, source ~/.bash_profile after complete!"
 # On OSX bash_profile is the login shell
