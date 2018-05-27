@@ -4,6 +4,7 @@ execute pathogen#helptags()
 
 " Basic behaviour
 syntax enable " Show syntax highlighting
+set nocompatible 
 set number             " Show line numbers
 set backspace=2        " Backspace deletes in insert mode
 set expandtab          " Tab key causes spaces to be inserted
