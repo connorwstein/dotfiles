@@ -12,6 +12,8 @@ set shiftwidth=4       " Indentation uses 4 spaces
 set autoindent         " Copy indentation from pervious line when starting new line
 set encoding=utf-8
 set paste "Note can't have set paste and jedi-vim
+set nohlsearch "Don't like typing noh
+set mouse=a "Allows you to use the mouse, can sometimes be handy for massive files
 let g:solarized_termcolors=256
 
 set background=light

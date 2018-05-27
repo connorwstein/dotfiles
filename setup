@@ -13,6 +13,11 @@ cp .gitconfig $HOME/.gitconfig
 echo "Copying .vimrc to $HOME/.vimrc"
 cp .vimrc $HOME/.vimrc
 
+# Bash profile (login shell should just check if there is a bashrc and if there is 
+# then source it
+echo "Setting up bash prompt, source ~/.bashrc after complete!"
+cp .bashrc $HOME/.bashrc
+
 echo "Copying cscope_maps.vim to $HOME/.vim/plugin"
 mkdir -p $HOME/.vim/plugin
 cp cscope_maps.vim $HOME/.vim/plugin/
@@ -48,21 +53,11 @@ else
     /usr/bin/git clone https://github.com/altercation/vim-colors-solarized.git
 fi
 
-
-echo "Setting up bash prompt, source ~/.bash_profile after complete!"
-# On OSX bash_profile is the login shell
-if ! grep PS1 $HOME/.bash_profile; then
-    echo -e "parse_git_branch() {\n\tgit branch 2> /dev/null " \
-    "| sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'\n}" >> $HOME/.bash_profile
-    echo 'export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "' \
-    >> $HOME/.bash_profile
-fi
-if ! grep TERM $HOME/.bash_profile; then
-    echo "export TERM=xterm-256color" >> $HOME/.bash_profile
-fi
-if ! grep "alias hs" $HOME/.bash_profile; then
-    echo 'alias hs="history | grep"' >> $HOME/.bash_profile
-fi
-if ! grep "alias ls" $HOME/.bash_profile; then
-    echo 'alias ls="ls -lart"' >> $HOME/.bash_profile
+cd $HOME/
+echo "Installing fzf"
+if [[ -d ".fzf" ]]; then
+	echo "Fuzzy finder already installed"
+else
+	/usr/bin/git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	$HOME/.fzf/install
 fi
