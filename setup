@@ -5,7 +5,7 @@ if ! /usr/bin/curl -V; then
 fi
 
 echo "Copying .tmux.config to $HOME/.tmux.config"
-cp .gitconfig $HOME/.tmux.config
+cp .tmux.conf $HOME/.tmux.conf
 
 echo "Copying .gitconfig to $HOME/.gitconfig"
 cp .gitconfig $HOME/.gitconfig
