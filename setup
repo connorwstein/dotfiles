@@ -53,6 +53,14 @@ else
     /usr/bin/git clone https://github.com/altercation/vim-colors-solarized.git
 fi
 
+echo "Installing vim-go"
+if [[ -d "vim-go" ]]; then
+    echo "vim-go already installed"
+else
+    /usr/bin/git clone https://github.com/fatih/vim-go.git 
+fi
+
+
 cd $HOME/
 echo "Installing fzf"
 if [[ -d ".fzf" ]]; then
@@ -61,3 +69,7 @@ else
 	/usr/bin/git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	$HOME/.fzf/install
 fi
+
+
+
+echo "Remember to source ~/.bashrc"

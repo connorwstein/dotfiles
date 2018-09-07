@@ -2,6 +2,9 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 
+" Enable filetype plugins, needed for go-vim
+filetype plugin on
+
 " Basic behaviour
 syntax enable " Show syntax highlighting
 set nocompatible 
@@ -33,7 +36,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Commenting blocks of code quickly
-autocmd FileType c,cpp,java,scala,go let b:comment_leader = '// '
+autocmd FileType c,cpp,java,scala,go,solidity let b:comment_leader = '// '
 autocmd FileType sh,ruby,python      let b:comment_leader = '# '
 autocmd FileType conf,fstab          let b:comment_leader = '# '
 autocmd FileType vim                 let b:comment_leader = '" '
@@ -53,3 +56,6 @@ au VimEnter *  NERDTree
 
 " Show hidden files 
 let NERDTreeShowHidden=1
+
+" Ignore go-vim req 7.4.2009  warning
+let g:go_version_warning = 0
