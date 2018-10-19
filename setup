@@ -13,6 +13,9 @@ cp .gitconfig $HOME/.gitconfig
 echo "Copying .vimrc to $HOME/.vimrc"
 cp .vimrc $HOME/.vimrc
 
+echo "Setting up tmux plugin manager"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Bash profile (login shell should just check if there is a bashrc and if there is 
 # then source it
 echo "Setting up bash prompt, source ~/.bashrc after complete!"
@@ -73,3 +76,4 @@ fi
 
 
 echo "Remember to source ~/.bashrc"
+echo "For tmux restoration you need to install the tmux plugins with prefx + I in a tmux session"
