@@ -59,3 +59,5 @@ let NERDTreeShowHidden=1
 
 " Ignore go-vim req 7.4.2009  warning
 let g:go_version_warning = 0
+" Seems to mess with my commenting out 
+let g:go_fmt_autosave = 0
