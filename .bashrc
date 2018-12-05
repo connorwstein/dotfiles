@@ -21,6 +21,7 @@ export TERM=xterm-256color
 alias jk="kill -9 \$(jobs -p) &> /dev/null"
 alias hs="history | grep"
 alias ls="ls -lart"
+set -o vi
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
