@@ -57,7 +57,16 @@ au VimEnter *  NERDTree
 " Show hidden files 
 let NERDTreeShowHidden=1
 
+" Vim-go config 
 " Ignore go-vim req 7.4.2009  warning
 let g:go_version_warning = 0
-" Seems to mess with my commenting out 
 let g:go_fmt_autosave = 0
+let g:go_def_mode = 'godef' "much faster than guru
+let g:go_fmt_command = "goimports"
+let mapleader=","
+" ,d to open definition
+" ,i to get type info
+" ,s to get callstack
+autocmd FileType go nmap <Leader>d <Plug>(go-def-vertical) 
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+autocmd FileType go nmap <Leader>s <Plug>(go-info)
