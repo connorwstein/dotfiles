@@ -56,6 +56,7 @@ au VimEnter *  NERDTree
 
 " Show hidden files 
 let NERDTreeShowHidden=1
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 " Vim-go config 
 " Ignore go-vim req 7.4.2009  warning
