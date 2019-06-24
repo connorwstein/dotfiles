@@ -71,3 +71,6 @@ let mapleader=","
 autocmd FileType go nmap <Leader>d <Plug>(go-def-vertical) 
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <Leader>s <Plug>(go-info)
+
+" copy to clipboard
+set clipboard=unnamed
