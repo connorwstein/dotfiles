@@ -36,7 +36,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Commenting blocks of code quickly
-autocmd FileType c,cpp,java,scala,go,solidity let b:comment_leader = '// '
+autocmd FileType c,cpp,java,scala,go,solidity,rust let b:comment_leader = '// '
 autocmd FileType sh,ruby,python      let b:comment_leader = '# '
 autocmd FileType conf,fstab          let b:comment_leader = '# '
 autocmd FileType vim                 let b:comment_leader = '" '
