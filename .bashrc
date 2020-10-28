@@ -22,6 +22,9 @@ alias jk="kill -9 \$(jobs -p) &> /dev/null"
 alias hs="history | grep"
 alias ls="ls -lart"
 alias cdg="cd $GOPATH/src/github.com"
+alias gs="git status"
+alias gcm="git commit -m"
+alias gta="git add"
 set -o vi
 
 export GOPATH=$HOME/go
