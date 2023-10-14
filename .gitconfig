@@ -3,3 +3,7 @@
 	name = connorwstein
 [core]
 	editor = vim
+[gpgp]
+	program = gpg
+[url "git@github.com:"]
+	insteadOf = https://github.com/ 
