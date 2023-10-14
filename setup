@@ -4,6 +4,9 @@ if ! /usr/bin/curl -V; then
     exit 1
 fi
 
+echo "Note first time mac you should install homebrew, asdf, git and bash"
+echo "Should install iterm2 for smooth copy pasting between tmux panes and system clipboard"
+
 echo "Copying .tmux.config to $HOME/.tmux.config"
 cp .tmux.conf $HOME/.tmux.conf
 
@@ -13,13 +16,13 @@ cp .gitconfig $HOME/.gitconfig
 echo "Copying .vimrc to $HOME/.vimrc"
 cp .vimrc $HOME/.vimrc
 
-echo "Setting up tmux plugin manager"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
 # Bash profile (login shell should just check if there is a bashrc and if there is 
 # then source it
 echo "Setting up bash prompt, source ~/.bashrc after complete!"
 cp .bashrc $HOME/.bashrc
+
+echo "Setting up tmux plugin manager"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "Copying cscope_maps.vim to $HOME/.vim/plugin"
 mkdir -p $HOME/.vim/plugin
@@ -72,7 +75,6 @@ else
 	/usr/bin/git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	$HOME/.fzf/install
 fi
-
 
 
 echo "Remember to source ~/.bashrc"
